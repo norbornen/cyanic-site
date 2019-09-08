@@ -8,18 +8,17 @@ export class FlatOfferController {
     constructor(private flatOfferService: FlatOfferService) {}
 
     @Get()
-    async getFlatOffers(@Res() res) {
-        const items = await this.flatOfferService.getFlatOffers();
-        return res.status(HttpStatus.OK).json(items);
+    async getFlatOffers() {
+        return this.flatOfferService.getFlatOffers();
     }
 
     @Get('/:flatOfferID')
-    async getFlatOffer(@Res() res, @Param('flatOfferID', new ValidateObjectId()) flatOfferID) {
+    async getFlatOffer(@Param('flatOfferID', new ValidateObjectId()) flatOfferID) {
         const item = await this.flatOfferService.getFlatOffer(flatOfferID);
         if (!item) {
-            throw new NotFoundException('Post does not exist!');
+            throw new NotFoundException('Flat offer does not exist!');
         }
-        return res.status(HttpStatus.OK).json(item);
+        return item;
     }
 
 }
