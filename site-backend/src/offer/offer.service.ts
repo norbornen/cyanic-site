@@ -13,6 +13,7 @@ export class FlatOfferService {
     ) {}
 
     async getFlatOffers(): Promise<FlatOffer[]> {
+		// todo: may be stream??
         const flatOffers = await this.flatOfferModel.find().populate('source').exec();
         return flatOffers;
     }
