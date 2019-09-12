@@ -16,9 +16,9 @@
                 {{ offer.price.amount }} ₽
             </div>
             <div class="dtc w-30 tc v-mid  pa2 pans mr2  f5 f4-ns">
-                <div v-if="!!offer.floor_number" class="nowrap mb2">
+                <span v-if="!!offer.floor_number" class="nowrap">
                     {{ offer.floor_number }} этаж{{ !!offer.floors_total ? ` / ${offer.floors_total}` : '' }}
-                </div>
+                </span>
             </div>
         </div>
     </div>

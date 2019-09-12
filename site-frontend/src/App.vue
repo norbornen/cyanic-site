@@ -1,7 +1,14 @@
 <template>
-  <div id="app" class="avenir">
+<div id="app" class="avenir">
     <router-view/>
-  </div>
+    <footer class="pv4 ph3 ph5-m ph6-l black">
+        <div class="tc mt3">
+            <a href="https://t.me/cyanic_public" class="f6 dib ph2 link black dim" target="_blank" title="Telegram Public Group">Telegram</a>
+            <a href="https://github.com/norbornen/cyanic" class="f6 dib ph2 link black dim" target="_blank" title="Github">GitHub</a>
+            <a href="mailto:example@example.com" class="f6 dib ph2 link black dim" target="_blank" title="Contact">Email</a>
+        </div>
+    </footer>
+</div>
 </template>
 
 <style>
