@@ -6,13 +6,13 @@
             </span>
         </h3>
         <div class="bg-white dt  w-100">
-            <div class="dtc w-30 tc v-mid  pa2 pa3-ns mr2  f4 f3-ns">
+            <div class="dtc w-30 tc v-mid  pa2 pa3-ns mr2  f5 f3-ns">
                 {{ offer.rooms_count }}<br/>комн
             </div>
             <div class="dtc w-40 tc v-mid  pa2 pa3-ns mr2  nowrap  f4 f3-ns">
                 {{ offer.price.amount }} ₽
             </div>
-            <div class="dtc w-30 tc v-mid  pa2 pans mr2  f4 f3-ns">
+            <div class="dtc w-30 tc v-mid  pa2 pans mr2  f5 f3-ns">
                 <span v-if="!!offer.floor_number" class="nowrap">
                     {{ offer.floor_number }} {{ !!offer.floors_total ? ` / ${offer.floors_total}` : '' }}<br/>этаж
                 </span>
