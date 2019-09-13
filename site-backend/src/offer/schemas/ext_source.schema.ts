@@ -7,7 +7,8 @@ export const ExtSourceSchema = new Schema(
         is_active: Boolean,
         name: String,
         provider: { type: String, select: false },
-        connection: { type: Object, select: false }
+        connection: { type: Object, select: false },
+        notification_channels: { type: Array, select: false }
     },
     {
         collection: 'extsources'

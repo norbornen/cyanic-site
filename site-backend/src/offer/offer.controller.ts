@@ -12,6 +12,11 @@ export class FlatOfferController {
         return this.flatOfferService.getFlatOffers();
     }
 
+    @Get('/by_date')
+    async getFlatOffersByDate() {
+        return this.flatOfferService.getFlatOffersByDate();
+    }
+
     @Get('/:flatOfferID')
     async getFlatOffer(@Param('flatOfferID', new ValidateObjectId()) flatOfferID) {
         const item = await this.flatOfferService.getFlatOffer(flatOfferID);

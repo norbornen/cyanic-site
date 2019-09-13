@@ -6,4 +6,5 @@ export interface ExtSource extends Document {
     readonly is_active: boolean;
     readonly name: string;
     readonly provider?: string;
+    readonly notification_channels?: string;
 }

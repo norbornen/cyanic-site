@@ -6,7 +6,7 @@
         </h1>
         <h3 class="f4 f2-l f3-m fw3 georgia lh-title i mt2 measure-wide">
             <span class="bg-black-90 white pa1">
-                Аренда 2 и 3-комнатных квартир на улицах Лукинская, Шолохова, Скульптора Мухиной и Чоботовская района Ново-Переделкино
+                Аренда 2 и 3-комнатных квартир на улицах Лукинская, Шолохова, <span class="nowrap-ns">Скульптора Мухиной</span> и Чоботовская в <span class="nowrap">Ново-Переделкино</span>
             </span>
         </h3>
         <div v-if="offers.length === 0" class="mt4  measure">
@@ -16,19 +16,19 @@
         </div>
     </header>
     <div>
-        <FlatOffer v-for="offer in offers" :key="offer._id" :offer="offer" />
+        <FlatOffersDailyGroup v-for="group in offers" :key="group._id.createdAt" :group="group" />
     </div>
 </div>
 </template>
 
 <script>
-import FlatOffer from '@/components/FlatOffer.vue'
+import FlatOffersDailyGroup from '@/components/FlatOffersDailyGroup.vue'
 import axios from "axios";
 
 export default {
     name: 'home',
     components: {
-        FlatOffer
+        FlatOffersDailyGroup
     },
     data() {
         return {
@@ -36,11 +36,11 @@ export default {
         };
     },
     created() {
-        this.fetchOffers();
+        this.fetchOffersByDate();
     },
     methods: {
-        fetchOffers() {
-            axios.get(`/api/offer`).then(({ data }) => (this.offers = data));
+        fetchOffersByDate() {
+            axios.get(`/api/offer/by_date`).then(({ data }) => (this.offers = data));
         }
     }
 };

@@ -2,10 +2,7 @@
     <div class="mb3 mb4-ns">
         <h3 class="ma0 fw5  georgia">
             <span class="dib bg-black-90 white  pa2 pa3-ns">
-                <small class="f7 avenir db mb1">{{ new Date(offer.createdAt).toLocaleString('ru') }}</small>
-                <span>
-                    {{ offer.source.name }}: <a :href="offer.ext_full_url" target="blank" class="white">{{ offer.location.address }}</a>
-                </span>
+                {{ offer.source.name }}: <a :href="offer.ext_full_url" target="blank" class="white">{{ offer.location.address }}</a>
             </span>
         </h3>
         <div class="bg-white dt  w-100">
@@ -34,9 +31,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-    .created-at {
-        font-size: 0.75rem;
-    }
-</style>
