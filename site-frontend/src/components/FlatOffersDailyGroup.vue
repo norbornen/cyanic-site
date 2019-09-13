@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3 class="f4 f3-ns fw6 i  mt4 mb2 mb3-ns">
+        <h3 class="f4 f3-ns fw6 i  mt4 mb2 mb3-l">
             {{ group._id.createdAt | formatDate }}
         </h3>
         <FlatOffer v-for="offer in group.results" :key="offer._id" :offer="offer" />
