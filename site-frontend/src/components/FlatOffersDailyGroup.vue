@@ -1,9 +1,9 @@
 <template>
-    <div class="">
-        <h2>{{ group._id.createdAt | formatDate }}</h2>
-        <div>
-            <FlatOffer v-for="offer in group.results" :key="offer._id" :offer="offer" />
-        </div>
+    <div>
+        <h3 class="f4 f3-ns fw6 i  mt4 mb2 mb3-ns">
+            {{ group._id.createdAt | formatDate }}
+        </h3>
+        <FlatOffer v-for="offer in group.results" :key="offer._id" :offer="offer" />
     </div>
 </template>
 
@@ -11,7 +11,7 @@
 import FlatOffer from '@/components/FlatOffer.vue'
 
 const formatDateOptions = {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'
 };
 
 export default {
@@ -25,7 +25,8 @@ export default {
     filters: {
         formatDate: function(d) {
             if (d) {
-                return (d instanceof Date ? d : new Date(d)).toLocaleString('ru', formatDateOptions);
+                const str = (d instanceof Date ? d : new Date(d)).toLocaleString('ru', formatDateOptions);
+                return str.replace(/\sг.$/, '');
             }
             return '';
         }

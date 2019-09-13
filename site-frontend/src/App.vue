@@ -1,5 +1,5 @@
 <template>
-<div id="app" class="avenir">
+<div id="app">
     <router-view/>
     <footer class="pv4 ph3 ph5-m ph6-l black">
         <div class="tc mt3">
@@ -13,6 +13,7 @@
 
 <style>
 #app {
+    font-family: 'avenir next', avenir, Montserrat, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
