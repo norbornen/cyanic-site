@@ -1,0 +1,19 @@
+[Unit]
+Description=Cyanic Site NodeJS Application
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RemainAfterExit=no
+Environment=PORT=3050
+SyslogIdentifier=cyanic-site
+StandardOutput=syslog
+StandardError=syslog
+WorkingDirectory=/var/www/cyanic-site/site-backend/dist/
+ExecStart=/usr/bin/node /var/www/cyanic-site/site-backend/dist/main.js
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target
