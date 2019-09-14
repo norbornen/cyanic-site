@@ -5,7 +5,7 @@
             <span class="bg-black-90 lh-copy white pa1">
                 <span>Cyanic</span>
                 <span class="dib">
-                    <a href="https://t.me/cyanic_public" target="blank" class="ml2 dib telegram-channel-link"></a>
+                    <a href="https://t.me/cyanic_public" target="blank" class="ml2 dib telegram-channel-link" title="Telegram Public Group"></a>
                 </span>
             </span>
         </h1>
