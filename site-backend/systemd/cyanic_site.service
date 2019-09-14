@@ -8,8 +8,8 @@ Restart=on-failure
 RemainAfterExit=no
 Environment=PORT=3050
 SyslogIdentifier=cyanic-site
-StandardOutput=syslog
-StandardError=syslog
+StandardOutput=file:/var/log/cyanic-site.log
+StandardError=file:/var/log/cyanic-site.log
 WorkingDirectory=/var/www/cyanic-site/site-backend/dist/
 ExecStart=/usr/bin/node /var/www/cyanic-site/site-backend/dist/main.js
 User=www-data
