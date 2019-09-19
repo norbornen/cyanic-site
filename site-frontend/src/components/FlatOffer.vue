@@ -2,7 +2,7 @@
     <div class="mb3 mb4-ns">
         <h3 class="ma0 fw5  georgia">
             <span class="dib bg-black-90 white  pa2 pa3-ns">
-                {{ offer.source.name }}: <a :href="offer.ext_full_url" target="blank" class="link underline white hover-pink">{{ offer.location.address }}</a>
+                {{ offer.source.name }}: <a :href="offer.ext_full_url" target="blank" class="link underline white hover-gold">{{ offer.location.short_address || offer.location.address }}</a>
             </span>
         </h3>
         <div class="bg-white dt  w-100">
@@ -34,6 +34,6 @@ export default {
 
 <style scoped>
     a.link:visited {
-        color: #ff80cc;
+        color: #ffb700;
     }
 </style>>
