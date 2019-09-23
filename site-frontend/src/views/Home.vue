@@ -14,62 +14,21 @@
                 Аренда 2 и 3-комнатных квартир на улицах Лукинская, Шолохова, <span class="nowrap-ns">Скульптора Мухиной</span> и Чоботовская в <span class="nowrap">Ново-Переделкино</span>
             </span>
         </h3>
-        <div v-if="offers === null" class="mt4  measure-wide">
-            <h3 class="sans-serif f4 f2-l f3-m fw3  georgia i">
-                <span class="bg-black-90 lh-copy white pa1">Объявления загружаются...</span>
-            </h3>
-        </div>
-        <div v-if="offers && offers.length === 0" class="mt4  measure-wide">
-            <h3 class="sans-serif f4 f2-l f3-m fw3  georgia i">
-                <span class="bg-black-90 lh-copy white pa1">В базе нет подходящих объявлений</span>
-            </h3>
-        </div>
     </header>
-    <div>
-        <FlatOffersDailyGroup v-for="group in offers" :key="group._id.createdAt" :group="group" />
-    </div>
-    <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+    <FlatOffersList />
 </div>
 </template>
 
 <script>
-import axios from "axios";
-import InfiniteLoading from 'vue-infinite-loading';
-import FlatOffersDailyGroup from '@/components/FlatOffersDailyGroup.vue'
+import FlatOffersList from '@/components/FlatOffersList.vue'
 
 export default {
     name: 'home',
     components: {
-        InfiniteLoading,
-        FlatOffersDailyGroup
+        FlatOffersList
     },
     data() {
-        return {
-            infiniteId: 0,
-            page: 0,
-            offers: null
-        };
-    },
-    created() {
-    },
-    methods: {
-        infiniteHandler($state) {
-            axios.get('/api/offer/by_date', {params: {page: this.page}})
-            .then(({ data }) => {
-                if (data && data.length > 0) {
-                    this.page++;
-                    (this.offers || (this.offers = [])).push(...data);
-                    $state.loaded();
-                } else {
-                    $state.complete();
-                }
-            });
-        },
-        changeFilter() {
-            this.page = 0;
-            this.offers = null;
-            this.infiniteId++;
-        }
+        return {};
     }
 };
 </script>
