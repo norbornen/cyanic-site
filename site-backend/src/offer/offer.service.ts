@@ -19,6 +19,7 @@ export class FlatOfferService {
 
     async getFlatOffersByDate(filters?: any, page: number = 0): Promise<FlatOffer[]> {
         const limit = 5;
+        const extSources = ['cian_flat_offer_np', 'yandex_flat_offer_np_realty', 'avito_flat_offer_np'];
 
         const flatGroupOffers = await this.flatOfferModel.aggregate([
             {
@@ -27,9 +28,12 @@ export class FlatOfferService {
             {
                 $lookup: {
                     from: this.extSourceModel.collection.name,
-                    localField: 'source',
-                    foreignField: '_id',
-                    as: 'source'
+                    let: { source: '$source' },
+                    as: 'source',
+                    pipeline: [
+                        {$match: {$expr: { $eq: ['$_id', '$$source'] }}},
+                        {$match: {alias: {$in: extSources} }}
+                    ]
                 }
             },
             {

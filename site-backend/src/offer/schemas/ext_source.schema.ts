@@ -6,11 +6,16 @@ export const ExtSourceSchema = new Schema(
         updatedAt: { type: Date, select: false },
         is_active: Boolean,
         name: String,
-        provider: { type: String, select: false },
+        alias: String,
+        transport: { type: String, select: false },
         connection: { type: Object, select: false },
-        notification_channels: { type: Array, select: false }
+        pipes_before: { type: [String], select: false },
+        factory: { type: String, select: false },
+        frequency: { type: String, select: false },
+        notification_channels: { type: [Schema.Types.ObjectId], select: false },
     },
     {
-        collection: 'extsources'
+        collection: 'extsources',
+        timestamps: true,
     }
 );
