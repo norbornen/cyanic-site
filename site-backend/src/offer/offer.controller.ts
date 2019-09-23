@@ -1,4 +1,4 @@
-import { Controller, Get, Res, HttpStatus, Param, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Query, Param, NotFoundException, ParseIntPipe } from '@nestjs/common';
 import { FlatOfferService } from './offer.service';
 import { ValidateObjectId } from '../shared/pipes/validate-object-id.pipes';
 
@@ -7,14 +7,14 @@ export class FlatOfferController {
 
     constructor(private flatOfferService: FlatOfferService) {}
 
+    @Get('/by_date')
+    async getFlatOffersByDate(@Query('filters') filters?: string, @Query('page', new ParseIntPipe()) page?: number) {
+        return this.flatOfferService.getFlatOffersByDate(filters, page);
+    }
+
     @Get()
     async getFlatOffers() {
         return this.flatOfferService.getFlatOffers();
-    }
-
-    @Get('/by_date')
-    async getFlatOffersByDate() {
-        return this.flatOfferService.getFlatOffersByDate();
     }
 
     @Get('/:flatOfferID')

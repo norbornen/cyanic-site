@@ -17,9 +17,13 @@ export class FlatOfferService {
         return flatOffers;
     }
 
-    async getFlatOffersByDate(): Promise<FlatOffer[]> {
+    async getFlatOffersByDate(filters?: any, page: number = 0): Promise<FlatOffer[]> {
+        const limit = 5;
+
         const flatGroupOffers = await this.flatOfferModel.aggregate([
-            { $match: { is_active: true } },
+            {
+                $match: { is_active: true }
+            },
             {
                 $lookup: {
                     from: this.extSourceModel.collection.name,
@@ -41,6 +45,7 @@ export class FlatOfferService {
                     'updatedAt': 1,
                     'ext_id': 1,
                     'ext_full_url': 1,
+                    'ext_updated_at': 1,
                     'floor_number': 1,
                     'floors_total': 1,
                     'location': 1,
@@ -58,9 +63,9 @@ export class FlatOfferService {
                     results: { $push: '$$ROOT' }
                 }
             },
-            {
-                $sort: { _id: -1 }
-            },
+            { $sort: { _id: -1, createdAt: 1 } },
+            { $limit: (limit * (page + 1)) },
+            { $skip: (limit * page) }
         ]);
         return flatGroupOffers;
     }
