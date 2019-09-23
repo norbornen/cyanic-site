@@ -45,10 +45,11 @@ export default {
                 if (data && data.length > 0) {
                     this.page++;
                     (this.offers || (this.offers = [])).push(...data);
-                    $state.loaded();
+                    // $state.loaded();
                 } else {
-                    $state.complete();
+                    // $state.complete();
                 }
+                $state.complete();
             });
         },
         changeFilter() {
