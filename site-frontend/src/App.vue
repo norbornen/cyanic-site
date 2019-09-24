@@ -19,7 +19,7 @@
         <router-view/>
     </div>
     <footer class="fixed left-0 bottom-0 right-0">
-        <div class="mw9 center  ph4 ph7-l">
+        <div class="mw8 center  ph4 ph7-l">
             <div class="pv2 ph3 ph5-m ph6-l  bg-black white tc">
                 <a href="https://t.me/cyanic_public" class="f6 dib ph2 link white dim" target="_blank" title="cyanic_public - Telegram Public Group">Telegram</a>
                 <a href="https://github.com/norbornen/cyanic" class="f6 dib ph2 link white dim" target="_blank" title="Github">GitHub</a>
