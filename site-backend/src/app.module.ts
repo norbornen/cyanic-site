@@ -6,7 +6,7 @@ import { FlatOfferModule } from './offer/offer.module';
 
 @Module({
     imports: [
-        MongooseModule.forRoot('mongodb://localhost/cyanic', { useNewUrlParser: true }),
+        MongooseModule.forRoot('mongodb://localhost/cyanic', { useNewUrlParser: true, useUnifiedTopology: true }),
         FlatOfferModule,
     ],
     controllers: [AppController],
